@@ -1,25 +1,25 @@
 package org.plume.framework;
 
 /**
- * ¶¨ÒåÅäÖÃÎÄ¼şµÄ³£Á¿½Ó¿ÚÀà
+ * å®šä¹‰é…ç½®æ–‡ä»¶çš„å¸¸é‡æ¥å£ç±»
  * Created by wangpf on 2017/7/20.
  */
 public interface ConfigConstant {
-    /*¶¨Òåplume-framework¿ò¼ÜµÄÈë¿ÚÅäÖÃÎÄ¼ş*/
+    /*å®šä¹‰plume-frameworkæ¡†æ¶çš„å…¥å£é…ç½®æ–‡ä»¶*/
     String CONFIG_FILE = "plume.properties";
 
-    /*¶¨ÒåjdbcÁ¬½Ó³£Á¿*/
+    /*å®šä¹‰jdbcè¿æ¥å¸¸é‡*/
     String JDBC_DRIVER = "plume.framework.jdbc.driver";
     String JDBC_URL = "plume.framework.jdbc.url";
     String JDBC_USERNAME = "plume.framework.jdbc.username";
     String JDBC_PASSWORD = "plume.framework.jdbc.password";
 
-    /*ÏîÄ¿»ù´¡°üÃû*/
+    /*é¡¹ç›®åŸºç¡€åŒ…å*/
     String APP_BASE_PACKAGE = "plume.framework.app.base_package";
 
-    /*ÏîÄ¿jsp»ù´¡Â·¾¶*/
+    /*é¡¹ç›®jspåŸºç¡€è·¯å¾„*/
     String APP_JSP_PATH = "plume.framework.app.jsp_path";
 
-    /*ÏîÄ¿¾²Ì¬×ÊÔ´ÎÄ¼şµÄ»ù´¡Â·¾¶*/
+    /*é¡¹ç›®é™æ€èµ„æºæ–‡ä»¶çš„åŸºç¡€è·¯å¾„*/
     String APP_ASSET_PATH = "plume.framework.app.asset_path";
 }

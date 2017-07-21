@@ -6,63 +6,63 @@ import org.plume.framework.utils.PropsUtil;
 import java.util.Properties;
 
 /**
- * ÊôĞÔÎÄ¼şÖúÊÖÀà
+ * å±æ€§æ–‡ä»¶åŠ©æ‰‹ç±»
  * Created by wangpf on 2017/7/20.
  */
 public class ConfigHelper {
     private static final Properties CONFIG_PROPS = PropsUtil.loadProps(ConfigConstant.CONFIG_FILE);
 
     /**
-     * »ñÈ¡jdbcÇı¶¯
-     * @return ·µ»ØÒ»¸öjdbcÇı¶¯
+     * è·å–jdbcé©±åŠ¨
+     * @return è¿”å›ä¸€ä¸ªjdbcé©±åŠ¨
      */
     public static String getJdbcDriver(){
         return PropsUtil.getString(CONFIG_PROPS,ConfigConstant.JDBC_DRIVER);
     }
 
     /**
-     * »ñÈ¡jdbc url
-     * @return ·µ»ØÒ»¸öjdbc url
+     * è·å–jdbc url
+     * @return è¿”å›ä¸€ä¸ªjdbc url
      */
     public static String getJdbcUrl(){
         return PropsUtil.getString(CONFIG_PROPS,ConfigConstant.JDBC_URL);
     }
 
     /**
-     * »ñÈ¡jdbcÓÃ»§Ãû
-     * @return ·µ»ØjdbcÓÃ»§Ãû
+     * è·å–jdbcç”¨æˆ·å
+     * @return è¿”å›jdbcç”¨æˆ·å
      */
     public static String getJdbcUsername(){
         return PropsUtil.getString(CONFIG_PROPS,ConfigConstant.JDBC_USERNAME);
     }
 
     /**
-     * »ñÈ¡jdbcÃÜÂë
-     * @return ·µ»ØjdbcÃÜÂë
+     * è·å–jdbcå¯†ç 
+     * @return è¿”å›jdbcå¯†ç 
      */
     public static String getJdbcPassword(){
         return PropsUtil.getString(CONFIG_PROPS,ConfigConstant.JDBC_PASSWORD);
     }
 
     /**
-     * »ñÈ¡Ó¦ÓÃ»ù´¡°üÃû
-     * @return ·µ»ØÓ¦ÓÃ»ù´¡°üÃû
+     * è·å–åº”ç”¨åŸºç¡€åŒ…å
+     * @return è¿”å›åº”ç”¨åŸºç¡€åŒ…å
      */
     public static String getAppBasePackage(){
         return PropsUtil.getString(CONFIG_PROPS,ConfigConstant.APP_BASE_PACKAGE);
     }
 
     /**
-     * »ñÈ¡Ó¦ÓÃjspÂ·¾¶ĞÅÏ¢
-     * @return ·µ»ØÓ¦ÓÃjspÂ·¾¶ĞÅÏ¢
+     * è·å–åº”ç”¨jspè·¯å¾„ä¿¡æ¯
+     * @return è¿”å›åº”ç”¨jspè·¯å¾„ä¿¡æ¯
      */
     public static String getAppJspPath(){
         return PropsUtil.getString(CONFIG_PROPS,ConfigConstant.APP_JSP_PATH,"/WEB-INF/view");
     }
 
     /**
-     * »ñÈ¡Ó¦ÓÃ¾²Ì¬×ÊÔ´Â·¾¶ĞÅÏ¢
-     * @return ·µ»ØÓ¦ÓÃ¾²Ì¬×ÊÔ´Â·¾¶ĞÅÏ¢
+     * è·å–åº”ç”¨é™æ€èµ„æºè·¯å¾„ä¿¡æ¯
+     * @return è¿”å›åº”ç”¨é™æ€èµ„æºè·¯å¾„ä¿¡æ¯
      */
     public static String getAppAssetPath(){
         return PropsUtil.getString(CONFIG_PROPS,ConfigConstant.APP_ASSET_PATH,"/asset");

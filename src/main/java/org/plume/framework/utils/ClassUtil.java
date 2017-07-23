@@ -62,6 +62,7 @@ public class ClassUtil {
                 if(url != null){
                     String protocol = url.getProtocol();
                     if(protocol.equals("file")){
+                        //%20 在html中代表空格
                         String packagePath = url.getPath().replace("%20"," ");
                         addClass(classSet,packagePath,packageName);
                     }else if(protocol.equals("jar")){
@@ -126,6 +127,13 @@ public class ClassUtil {
     private static void doAddClass(Set<Class<?>> classSet, String className) {
         Class<?> cls = loadClass(className, false);
         classSet.add(cls);
+    }
+
+    public static void main(String[] args){
+        Set<Class<?>> classSet = ClassUtil.getClassSet("org.plume.framework.utils");
+//        String str = "a b/c";
+//        String tmp = str.replace("a",",");
+//        System.out.println("tmp = " + tmp);
     }
 
 

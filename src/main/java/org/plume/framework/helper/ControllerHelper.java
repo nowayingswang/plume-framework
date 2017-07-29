@@ -1,8 +1,9 @@
-package org.plume.framework.bean;
+package org.plume.framework.helper;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.plume.framework.annotation.Action;
-import org.plume.framework.helper.ClassHelper;
+import org.plume.framework.bean.Handler;
+import org.plume.framework.bean.Request;
 import org.plume.framework.utils.CollectionUtil;
 
 import java.lang.reflect.Method;

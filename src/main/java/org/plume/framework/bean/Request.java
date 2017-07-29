@@ -37,6 +37,6 @@ public class Request {
 
     @Override
     public boolean equals(Object obj) {
-        return EqualsBuilder.reflectionEquals(obj,this);
+        return EqualsBuilder.reflectionEquals(this,obj);
     }
 }

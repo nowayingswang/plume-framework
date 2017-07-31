@@ -59,4 +59,48 @@ public class CastUtil {
         }
         return booleanValue;
     }
+
+    /**
+     * 转为long型
+     */
+    public static long castLong(Object obj) {
+        return CastUtil.castLong(obj,0);
+    }
+
+    public static long castLong(Object obj,long defaultValue){
+        long longValue = defaultValue;
+        if(obj != null){
+            String strValue = castString(obj);
+            if(StringUtil.isNotEmpty(strValue)){
+                try {
+                    longValue = Long.parseLong(strValue);
+                }catch (NumberFormatException e){
+                    longValue = defaultValue;
+                }
+            }
+        }
+        return longValue;
+    }
+
+    /**
+     * 转为double型
+     */
+    public static double castDouble(Object obj) {
+        return CastUtil.castDouble(obj,0);
+    }
+
+    public static double castDouble(Object obj,double defaultValue){
+        double doubleValue = defaultValue;
+        if(obj != null){
+            String strValue = castString(obj);
+            if(StringUtil.isNotEmpty(strValue)){
+                try {
+                    doubleValue = Double.parseDouble(strValue);
+                }catch (NumberFormatException e){
+                    doubleValue = defaultValue;
+                }
+            }
+        }
+        return doubleValue;
+    }
 }

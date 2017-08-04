@@ -1,6 +1,8 @@
 package org.plume.framework;
 
-import com.sun.xml.internal.ws.api.policy.PolicyResolver;
+import org.plume.framework.bean.Handler;
+import org.plume.framework.helper.ConfigHelper;
+import org.plume.framework.helper.ControllerHelper;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -8,6 +10,9 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * 请求转发器
@@ -25,5 +30,17 @@ public class DispatcherServlet extends HttpServlet{
 
         //处理jsp的servlet
         ServletRegistration jspServlet = serverContext.getServletRegistration("jsp");
+        jspServlet.addMapping(ConfigHelper.getAppJspPath() + "*");
+        ServletRegistration defaultServlet = serverContext.getServletRegistration("default");
+        defaultServlet.addMapping(ConfigHelper.getAppAssetPath() + "*");
+    }
+
+    @Override
+    public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String requestPath = request.getPathInfo();
+        String requestMethod = request.getMethod();
+        //获取action处理器
+        Handler handler = ControllerHelper.getHandler(requestMethod,requestPath);
+
     }
 }

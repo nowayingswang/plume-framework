@@ -15,20 +15,20 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * ÇëÇó×ª·¢Æ÷
+ * è¯·æ±‚è½¬å‘å™¨
  * Created by wangpf on 2017/8/4.
  */
 @WebServlet(urlPatterns = "/*",loadOnStartup = 0)
 public class DispatcherServlet extends HttpServlet{
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
-        //³õÊ¼»¯Ïà¹ØhelperÀà
+        //åˆå§‹åŒ–ç›¸å…³helperç±»
         HelperLoader.init();
 
-        //»ñÈ¡serverContext¶ÔÏó£¬ÓÃÓÚ×¢²áservlet
+        //è·å–serverContextå¯¹è±¡ï¼Œç”¨äºæ³¨å†Œservlet
         ServletContext serverContext = servletConfig.getServletContext();
 
-        //´¦ÀíjspµÄservlet
+        //å¤„ç†jspçš„servlet
         ServletRegistration jspServlet = serverContext.getServletRegistration("jsp");
         jspServlet.addMapping(ConfigHelper.getAppJspPath() + "*");
         ServletRegistration defaultServlet = serverContext.getServletRegistration("default");
@@ -39,7 +39,7 @@ public class DispatcherServlet extends HttpServlet{
     public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String requestPath = request.getPathInfo();
         String requestMethod = request.getMethod();
-        //»ñÈ¡action´¦ÀíÆ÷
+        //è·å–actionå¤„ç†å™¨
         Handler handler = ControllerHelper.getHandler(requestMethod,requestPath);
 
     }

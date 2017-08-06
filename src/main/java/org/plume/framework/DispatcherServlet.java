@@ -1,8 +1,13 @@
 package org.plume.framework;
 
+import org.apache.log4j.lf5.util.StreamUtils;
 import org.plume.framework.bean.Handler;
+import org.plume.framework.helper.BeanHelper;
 import org.plume.framework.helper.ConfigHelper;
 import org.plume.framework.helper.ControllerHelper;
+import org.plume.framework.utils.CodecUtil;
+import org.plume.framework.utils.StreamUtil;
+import org.plume.framework.utils.StringUtil;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -13,6 +18,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 请求转发器
@@ -41,6 +49,22 @@ public class DispatcherServlet extends HttpServlet{
         String requestMethod = request.getMethod();
         //获取action处理器
         Handler handler = ControllerHelper.getHandler(requestMethod,requestPath);
-
+        if(handler != null){
+            //获取controller类和bean实例
+            Class<?> controllerClass = handler.getControllerClass();
+            Object controllerBean = BeanHelper.getBean(controllerClass);
+            //创建请求参数对象
+            Map<String, Object> paramMap = new HashMap<String, Object>();
+            Enumeration<String> paramNames = request.getParameterNames();
+            while (paramNames.hasMoreElements()){
+                String paramName = paramNames.nextElement();
+                String paramValue = request.getParameter(paramName);
+                paramMap.put(paramName,paramValue);
+            }
+            String body = CodecUtil.decodeURL(StreamUtil.getString(request.getInputStream()));
+            if(StringUtil.isNotEmpty(body)){
+                //TODO body逻辑处理判断
+            }
+        }
     }
 }

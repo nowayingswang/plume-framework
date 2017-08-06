@@ -12,7 +12,7 @@ import java.net.URLEncoder;
  * Created by wang on 2017/8/7.
  */
 public class CodecUtil {
-    private static final Logger LOGGER = LoggerFactory.getLogger(StreamUtil.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CodecUtil.class);
 
     /**
      * 将url编码

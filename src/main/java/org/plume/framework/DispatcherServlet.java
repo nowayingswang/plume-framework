@@ -1,6 +1,5 @@
 package org.plume.framework;
 
-import org.apache.log4j.lf5.util.StreamUtils;
 import org.plume.framework.bean.Handler;
 import org.plume.framework.helper.BeanHelper;
 import org.plume.framework.helper.ConfigHelper;
@@ -23,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 请求转发器
+ * 璇锋眰杞彂鍣�
  * Created by wangpf on 2017/8/4.
  */
 @WebServlet(urlPatterns = "/*",loadOnStartup = 0)
@@ -33,12 +32,14 @@ public class DispatcherServlet extends HttpServlet{
         //初始化相关helper类
         HelperLoader.init();
 
-        //获取serverContext对象，用于注册servlet
+        //获取servletContext对象，用于注册servlet
         ServletContext serverContext = servletConfig.getServletContext();
 
         //处理jsp的servlet
         ServletRegistration jspServlet = serverContext.getServletRegistration("jsp");
         jspServlet.addMapping(ConfigHelper.getAppJspPath() + "*");
+
+        //注册用于处理静态资源的默认servlet
         ServletRegistration defaultServlet = serverContext.getServletRegistration("default");
         defaultServlet.addMapping(ConfigHelper.getAppAssetPath() + "*");
     }
@@ -63,7 +64,7 @@ public class DispatcherServlet extends HttpServlet{
             }
             String body = CodecUtil.decodeURL(StreamUtil.getString(request.getInputStream()));
             if(StringUtil.isNotEmpty(body)){
-                //TODO body逻辑处理判断
+                //TODO body閫昏緫澶勭悊鍒ゆ柇
             }
         }
     }
